@@ -288,7 +288,90 @@ a:hover {
 /* https://matthewlein.com/tools/ceaser */
 ```
 
+### 4,2 Transformations
 
+```css
+/* image를 원으로 만들 수 있음 */
+img {
+    border-redius: 50%;
+}
+
+/* Transform은 형제를 변경하지 않음
+   margin, padding을 변경하지 않고 원하는 요소를 옮기기 위해서 사용
+   Tramsform을 이용하여 css를 3D로 만듬 */
+img {
+    transform: rotateY({각도}deg)
+}
+
+/* sacle: 크기변경*/
+img {
+    transform: sacle(2, 2);
+}
+
+/* translate: 옮기기 */
+img {
+    transform: translateX(-100px);
+}
+
+/* skew: 비스듬히 기울이기 */
+img {
+	transform: skew(45deg);
+}
+
+/* transition과 같이 사용하면 awesome */
+img {
+    border: 5px solid black;
+    border-radius: 50%;
+    transition: transform 2s ease-in-out;
+}
+img:hover {
+    transform: rotateY(360deg) scale(0.5);
+}
+```
+
+### 4.3 Animations part One
+
+```css
+/* 계속 재생되는 애니메이션이 필요할때 */
+
+/* 사용법 */
+@keyfrmaes 이름 {
+}
+
+/* 첫번째 사용법 */
+@keyframes superSexyCoinFlip {
+    from {
+        transform: rotateX(0);
+    }
+    to {
+        transform: rotateX(360deg);
+    }
+}
+
+img {
+    border: 5px solid black;
+    border-radius: 50%;
+    animation: superSexyCoinFlip 5s ease-in-out infinite/*무한*/;
+}
+/* 두번째 사용법 */
+@keyframes superSexyCoinFlip {
+    0% {
+        transform: rotateX(0);
+    }
+    50% {
+        transform: rotateY(180deg) translateX(100px);
+    }
+    100% {
+        transform: rotateX(0);
+    }
+}
+
+img {
+    border: 5px solid black;
+    border-radius: 50%;
+    animation: superSexyCoinFlip 5s ease-in-out infinite;
+}
+```
 
 
 
