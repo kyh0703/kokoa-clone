@@ -410,3 +410,11 @@ CSS Hack
   width: 33%;
 }
 ```
+
+### 6.6 Sign Up Screen part Three
+
+HTML에서 기본적인 마진 같은 것들을 없애기 위해선 리셋 CSS를 사용해야 한다.
+
+리셋 CSS는 CSS파일이다.
+
+margin:0, pdding:0, border:0 초기화 되어 있는 파일
