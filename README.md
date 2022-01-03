@@ -1,7 +1,5 @@
 # Normard Kokoa Clone
 
-
-
 옆에 다른 요소를 못 붙이면 block, 붙일수 있으면 inline
 inline span a img
 어떤 요소가 inline이면 높이와 넓이가 없다.
@@ -40,16 +38,16 @@ flow-direction으로 주축방향을 수정할 수 있다.
 
 #### position
 
-* default(static)
-  * 레이아웃이 박스를 처음 위치하는 곳에 두는것
-* fiexd(틀고정)
-  * 생성된 시점으로 거정되어 있지만 top, left, right, bottom에서 하나만 수정 되면 기 생성된 위치를 신경 쓰지 않는다(block, margin)
-  *  top, left, right, bottom을 수정하면 서로 다른 레이어로 넘어감
-  * 가장 위에 있음
-* relative
-  * 포지션을 처음 위치한 곳을 기준으로 위치를 수정 할 수 있음
-* absolute
-  * 가장 가까운 relative 부모를 기준으로 이동 (없으면 상단으로 이동)
+- default(static)
+  - 레이아웃이 박스를 처음 위치하는 곳에 두는것
+- fiexd(틀고정)
+  - 생성된 시점으로 거정되어 있지만 top, left, right, bottom에서 하나만 수정 되면 기 생성된 위치를 신경 쓰지 않는다(block, margin)
+  - top, left, right, bottom을 수정하면 서로 다른 레이어로 넘어감
+  - 가장 위에 있음
+- relative
+  - 포지션을 처음 위치한 곳을 기준으로 위치를 수정 할 수 있음
+- absolute
+  - 가장 가까운 relative 부모를 기준으로 이동 (없으면 상단으로 이동)
 
 ### 3.14 Pseudo Selectores part One
 
@@ -58,17 +56,17 @@ flow-direction으로 주축방향을 수정할 수 있다.
 
 /* 사용법 */
 span:[옵션명](value) {
-    ...
+  ...;
 }
 
 /* 첫번째 태그 */
 span:first-child {
-	...
+  ...;
 }
 
 /* 마지막 태그 */
 span:last-child {
-	...
+  ...;
 }
 
 /* 인덱스 지정 */
@@ -77,12 +75,12 @@ span:nth-child(1) {
 
 /* 짝수, 홀수를 지정 */
 span:nth-child(even or odd) {
-    ...
+  ...;
 }
 
 /* n으로 순번을 지정 할 수 있음 */
 span:nth-child(3n + 1) {
-    ...
+  ...;
 }
 ```
 
@@ -168,41 +166,41 @@ input[placeholder~="name"] {
 ```css
 /* 클릭 시 */
 button:active {
-    background-color: yellowgreen;
+  background-color: yellowgreen;
 }
 
 /* 마우스를 올렸을 때 */
 button:hover {
-    background-color: tomato;
+  background-color: tomato;
 }
 
 /* 키보드로 선택됬을때 */
 button:focus {
-    background-color: tomato;
+  background-color: tomato;
 }
 
 /* 키보드로 선택됬을때 */
 button:focus {
-    background-color: tomato;
+  background-color: tomato;
 }
 
 /* 클릭했거나, 브라우저를 방문했을때 */
 a:visited {
-    color: tomato;
+  color: tomato;
 }
 
 /* focursed인 자식을 가진 부모 엘리먼트에 적용 */
 form:forcus-within {
-    border-color: seagreen;
+  border-color: seagreen;
 }
 
 /* 부모의 상태에 따라 자식 상태 변경 */
 form:hover input {
-    background-color: sienna;
+  background-color: sienna;
 }
 
 form:hover input:focus {
-    background-color: sienna;
+  background-color: sienna;
 }
 ```
 
@@ -211,17 +209,17 @@ form:hover input:focus {
 ```css
 /* placeholder가 있을경우 변경 */
 input::placeholder {
-    color: yellowgreen;
+  color: yellowgreen;
 }
 
 /* selection 마우스로 선택했을때*/
 p::selection {
-    background-color: yellowgreen;
+  background-color: yellowgreen;
 }
 
 /* 첫번쨰 문자만 */
 p::first-letter {
-    color: white;
+  color: white;
 }
 ```
 
@@ -242,16 +240,16 @@ rgb(250, 225, 0, 0.8)
 /* Variable(custom property) */
 /* css custom property 브라우저 지원버전 */
 :root {
-    --main-color: #fcce00;
-    --default-border: 1px solid var(--main-color);
+  --main-color: #fcce00;
+  --default-border: 1px solid var(--main-color);
 }
 
 p {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 }
 a {
-    color: var(--main-color);
-	border: var(--default-border);
+  color: var(--main-color);
+  border: var(--default-border);
 }
 ```
 
@@ -265,18 +263,18 @@ a {
 
 /* transition: <변경요소> <시간> <옵션>, ... */
 a {
-    color: wheat;
-    background-color: tomato;
-    text-decoration: none;
-    padding: 3px 5px;
-    border-radius: 5px;
-    font-size: 55px;
-    /* transition: background-color 10s ease-in-out, color 5s ease-in-out; */
-	transition: all 5s ease-in-out;
+  color: wheat;
+  background-color: tomato;
+  text-decoration: none;
+  padding: 3px 5px;
+  border-radius: 5px;
+  font-size: 55px;
+  /* transition: background-color 10s ease-in-out, color 5s ease-in-out; */
+  transition: all 5s ease-in-out;
 }
 a:hover {
-    color: tomato;
-    background-color: wheat;
+  color: tomato;
+  background-color: wheat;
 }
 ```
 
@@ -293,39 +291,39 @@ a:hover {
 ```css
 /* image를 원으로 만들 수 있음 */
 img {
-    border-redius: 50%;
+  border-redius: 50%;
 }
 
 /* Transform은 형제를 변경하지 않음
    margin, padding을 변경하지 않고 원하는 요소를 옮기기 위해서 사용
    Tramsform을 이용하여 css를 3D로 만듬 */
 img {
-    transform: rotateY({각도}deg)
+  transform: rotateY({각도}deg);
 }
 
 /* sacle: 크기변경*/
 img {
-    transform: sacle(2, 2);
+  transform: sacle(2, 2);
 }
 
 /* translate: 옮기기 */
 img {
-    transform: translateX(-100px);
+  transform: translateX(-100px);
 }
 
 /* skew: 비스듬히 기울이기 */
 img {
-	transform: skew(45deg);
+  transform: skew(45deg);
 }
 
 /* transition과 같이 사용하면 awesome */
 img {
-    border: 5px solid black;
-    border-radius: 50%;
-    transition: transform 2s ease-in-out;
+  border: 5px solid black;
+  border-radius: 50%;
+  transition: transform 2s ease-in-out;
 }
 img:hover {
-    transform: rotateY(360deg) scale(0.5);
+  transform: rotateY(360deg) scale(0.5);
 }
 ```
 
@@ -340,38 +338,94 @@ img:hover {
 
 /* 첫번째 사용법 */
 @keyframes superSexyCoinFlip {
-    from {
-        transform: rotateX(0);
-    }
-    to {
-        transform: rotateX(360deg);
-    }
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
 }
 
 img {
-    border: 5px solid black;
-    border-radius: 50%;
-    animation: superSexyCoinFlip 5s ease-in-out infinite/*무한*/;
+  border: 5px solid black;
+  border-radius: 50%;
+  animation: superSexyCoinFlip 5s ease-in-out infinite /*무한*/;
 }
 /* 두번째 사용법 */
 @keyframes superSexyCoinFlip {
-    0% {
-        transform: rotateX(0);
-    }
-    50% {
-        transform: rotateY(180deg) translateX(100px);
-    }
-    100% {
-        transform: rotateX(0);
-    }
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateY(180deg) translateX(100px);
+  }
+  100% {
+    transform: rotateX(0);
+  }
 }
 
 img {
-    border: 5px solid black;
-    border-radius: 50%;
-    animation: superSexyCoinFlip 5s ease-in-out infinite;
+  border: 5px solid black;
+  border-radius: 50%;
+  animation: superSexyCoinFlip 5s ease-in-out infinite;
 }
 ```
 
+### 6.1 Sign Up Screen part ONe
 
+단축키
+! + 엔터
+line:css
 
+<link rel="stylesheet" href="style.css" />
+
+### 6.2 BEM
+
+클래스로 표기를 명명하였음
+소속관계 ** btn**column
+행동 -- btn--wide
+
+### 6.3 FontAwesome
+
+아이콘을 만드는 방법
+
+1. SVG : 좌표로 그림을 늘릴 수 있다.
+2. Heroicons
+3. FontAwesome
+4. Google Fonts
+
+script는 body닫기 마지막에 있어야됨
+
+### 6.5 Status Bar css
+
+CSS Hack
+
+```css
+.status-bar {
+  display: flex;
+  justify-context: center;
+}
+
+.status-bar__column {
+  width: 33%;
+}
+```
+
+### 6.6 Sign Up Screen part Three
+
+HTML에서 기본적인 마진 같은 것들을 없애기 위해선 리셋 CSS를 사용해야 한다.
+
+리셋 CSS는 CSS파일이다.
+
+margin:0, pdding:0, border:0 초기화 되어 있는 파일
+
+### 6.12 단축키
+
+nav>ul>li*4>a
+
+box-sizing: border-box를 쓰면 CSS가 content가 보일 부분을 늘리 않음
+
+width 200px
+padding left 50px
+
+|50px|200px
