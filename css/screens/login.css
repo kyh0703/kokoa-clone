@@ -34,7 +34,6 @@
   transition: border-color 0.3s ease-in-out;
 }
 
-/* login-form__input */
 #login-form input::placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
@@ -43,7 +42,6 @@
   border-color: var(--yellow);
 }
 
-/* login-form__btn */
 #login-form input[type="submit"] {
   background-color: var(--yellow);
   cursor: pointer;
@@ -51,7 +49,6 @@
   border-radius: 5px;
 }
 
-/* login-form__a */
 #login-form a {
   text-align: center;
   text-decoration: none;
