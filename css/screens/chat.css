@@ -13,7 +13,7 @@
 }
 
 #chat-screen .status-bar {
-    /* 덮어쓰기 순서를 나타냄 */
+    /* z-index: 덮어쓰기 순서를 나타냄 */
     z-index: 2;
 }
 
@@ -23,5 +23,54 @@
 }
 
 .main-chat {
-    margin-top: 150px;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat__timestamp {
+    color: white;
+    background-color: #92a4b2;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.message-row {
+    width: 100%;
+    display: flex;
+}
+
+.message-row img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message_author {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.message__info {
+    display: flex;
+    align-items: flex-end;
+}
+
+.message__bubble {
+    background-color: white;
+    font-size: 18px;
+    padding: 13px;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    margin-right: 5px;
+}
+
+.message_author,
+.message__time  {
+    opacity: 0.8;
+    font-size: 15px;
 }
