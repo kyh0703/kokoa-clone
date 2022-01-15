@@ -29,6 +29,20 @@
   color: var(--gray);
 }
 
+/* animation 애니메이션이 동작하고 나서 다시 돌아감 -> forwards를 통해 해결 */
+@keyframes hideSplashScreen {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    /* mouse에 걸리지 않게 빠져나옴 하지만 HTML은 존재함 */
+    /* 뭔가를 숨기거나 HTML제거하기 위해서는 자바스크립트가 필요함 */
+    visibility: hidden;
+  }
+}
+
 #splash-screen {
   background-color: var(--yellow);
   position: absolute;
@@ -38,7 +52,10 @@
   /* vw 100% width */
   width: 100vw;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   font-size: 132px;
+  /* forwards 마지막 속성 값을  애니메이션이 끝나고 유지함 */
+  animation: hideSplashScreen 0.4s ease-in-out forwards;
+  animation-delay: 2s;
 }
