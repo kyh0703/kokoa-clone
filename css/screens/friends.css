@@ -56,6 +56,7 @@
   align-items: center;
   font-size: 132px;
   /* forwards 마지막 속성 값을  애니메이션이 끝나고 유지함 */
-  animation: hideSplashScreen 0.4s ease-in-out forwards;
+  animation: hideSplashScreen 0.3s ease-in-out forwards;
+  /* animation-delay: Delay를 통해 기다린 후에 애니메이션 재생 */
   animation-delay: 2s;
 }
