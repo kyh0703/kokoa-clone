@@ -13,6 +13,7 @@
 @import "components/point.css";
 @import "components/exclamation-point.css";
 @import "components/icon-row.css";
+@import "components/no-mobile.css";
 
 /* Screens */
 @import "screens/login.css";
