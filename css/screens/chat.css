@@ -1,6 +1,6 @@
 #chat-screen {
     background-color: #abc1d1;
-    height: 11000vh;
+    height: 500vh;
 }
 
 #chat-screen .status-bar,
@@ -22,11 +22,24 @@
     top: 10px;
 }
 
+@keyframes fadeIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
 .main-chat {
-    margin-top: 120px;
+    margin-top: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: fadeIn 0.8s linear;
 }
 
 .chat__timestamp {
@@ -56,9 +69,41 @@
     display: block;
 }
 
+@keyframes leftFadeIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes rightFadeIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
 .message__info {
     display: flex;
     align-items: flex-end;
+}
+
+.message-row .message__info {
+    animation: leftFadeIn 0.5s linear;
+}
+
+.message-row--own .message__info {
+    animation: rightFadeIn 0.5s linear;
 }
 
 .message__bubble {
@@ -71,7 +116,7 @@
 }
 
 .message_author,
-.message__time  {
+.message__time {
     opacity: 0.8;
     font-size: 15px;
 }
@@ -91,6 +136,7 @@
 .message-row--own .message__info {
     flex-direction: row-reverse;
 }
+
 /* .message-row--own .message__bubble {
     order: only worked flex child
     order: 1;
@@ -105,15 +151,17 @@
     width: 100%;
     background-color: white;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 5px 25px;
     box-sizing: border-box;
     align-items: center;
+    transition: transform 0.3s ease-in-out;
 }
 
 .reply .reply__column:first-child {
     width: 10%;
 }
+
 .reply .reply__column:last-child {
     width: 90%;
     position: relative;
@@ -124,16 +172,18 @@
     width: 100%;
     border: var(--main-border);
     border-radius: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
 }
 
-.reply__column:last-child > i,
+.reply__column:last-child>i,
 .reply__column:last-child button {
     position: absolute;
     right: -3px;
     top: 2px;
 }
 
-.reply__column:last-child > i {
+.reply__column:last-child>i {
     right: 40px;
     top: 10px;
 }
@@ -143,7 +193,7 @@
     border: none;
     width: 30px;
     height: 30px;
-    border-radius:50%;
+    border-radius: 50%;
 }
 
 .reply__column button i {
@@ -157,4 +207,24 @@
 
 .reply i {
     opacity: 0.5;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-beam,
+.reply button {
+    transition: opacity 0.3s ease-in-out;
+}
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-beam,
+.reply:focus-within button {
+    opacity: 0;
+}
+
+.reply:focus-within input {
+    width: 98vw;
+    transform: translateX(-13%) translateY(-80px);
+}
+
+.reply:focus-within {
+    transform: translateY(80%);
 }
