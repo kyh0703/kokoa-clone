@@ -429,3 +429,11 @@ width 200px
 padding left 50px
 
 |50px|200px
+
+### 7.1 Publishing on Github Pages
+
+branch를 `gh-pages`로 만들고 `push`를 하면 github에 들어가서 Environments에 들어가보면 github.io 페이지와 연결되어 볼 수 있다.
+
+### 7.2 Updating Github Pages
+
+main branch에서 작업후에 ``gh-pages`` 브랜치로 이동후 ``branch``에 ``update from main`` 클릭 후 푸쉬해야 페이지가 변경됌!
