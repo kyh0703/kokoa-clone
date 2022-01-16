@@ -51,6 +51,7 @@
 }
 
 .nav__btn {
+  /* delay를 주기전까지 애니메이션이 동작하지 않는 상태임으로 초기값으로 애니메이션을 넣어줌 */
   transform: translateY(50px);
   opacity: 0;
   animation: appearBtnAnimation 0.3s ease-in-out forwards;

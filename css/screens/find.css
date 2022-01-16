@@ -101,3 +101,28 @@
 .open-post__heart-count span {
   margin-left: 3px;
 }
+
+@keyframes hearthBeat {
+  0% {
+    color: white;
+    transform: none;
+  }
+
+  50% {
+    color: tomato;
+    transform: scale(1.5);
+  }
+
+  100% {
+    color: white;
+    transform: none;
+  }
+}
+
+.open-post__heart-count:hover i {
+  /* will-change는 기본적으로 브라우저에게 뭔가 바뀔거라고 얘기함 */
+  /* 애니메이션을 더 낫게 바꿈 그래픽카드를 이용하여 브라우저를 도와줌 */
+  /* 애니매이션이 이상할 때 쓰면 될듯 */
+  will-change: transform;
+  animation: hearthBeat 1s linear infinite;
+}
