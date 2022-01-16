@@ -429,3 +429,7 @@ width 200px
 padding left 50px
 
 |50px|200px
+
+### 7.1 Publishing on Github Pages
+
+branch를 ``gh-pages``로 만들고 ``push``를 하면 github에 들어가서 Environments에 들어가보면 github.io 페이지와 연결되어 볼 수 있다.
