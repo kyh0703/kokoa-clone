@@ -1,42 +1,56 @@
 # Normard Kokoa Clone
 
-옆에 다른 요소를 못 붙이면 block, 붙일수 있으면 inline
-inline span a img
-어떤 요소가 inline이면 높이와 넓이가 없다.
-어떤 요소가 block이면 높이와 넓이가 있다.
+## Basic
 
-box -> margin border padding 3가지 요소
-margin: box의 border의 바깥에 있는 공간
+#### box
 
-- collapsing margins 현상: 흰 box의 경계가 보라색 box의 경계와 같을 때 일어나고 두 box의 margin은 하나가 된다.
+* margin
 
-border:
-padding: border로부터 안쪽에 있는 공간
+    * box의 border의 바깥에 있는 공간
 
-inline: margin 좌우는 적용되고 위아래는 안됌. 그렇기에 display block으로 바꿔줘야됨
+    > collapsing margins 현상: 흰 box의 경계가 보라색 box의 경계와 같을 때 일어나고 두 box의 margin은 하나가 된다.
 
-#tomato -> id="tomato"
-.tomato -> class="tomato"
+* border
 
-inline-block은 반응형을 지원하지않기에 suck
+    * 경계선
 
-flexbox 사용시 주의점
+* padding
 
-1. 자식엘리먼트에는 어떤것도 적지 말아야 된다. 부모만 명시
-2. 주축(기본: 수평) justify-content
-3. 교차축(기본: 수직) align-item
-   부모가 높이를 가지고 있지않으면 교차측을 변경해도 반영되지않음
-   viewport height: 화면상보여지는크기
+    * border로부터 안쪽에 있는 공간
 
-### 3.11 Flexbox Part Tow
+#### block
 
-flow-direction으로 주축방향을 수정할 수 있다.
+* 옆에 다른 요소를 못 붙임
+* 높이와 넓이가 있음
 
-### 3.12 Fixed
+#### inline
 
-### 3.13 RelativeAbsolute
+* ``span a image``
 
-#### position
+* 옆에 다른 요소를 붙일 수 있음
+* 높이와 넓이가 없음
+* margin 좌우는 적용되지만 위 아래는 안되어, ``display: block``으로 바꿔줘야됨
+* block은 반응형을 지원하지 않기에 잘 안씀
+
+#### flex
+
+* 자식엘리먼트에는 어떤것도 적지 말아야 된다. 부모만 명시
+* justify-content
+    * 주축(기본: 수평) 
+* align-item
+    * 교차축(기본: 수직) 
+    * 부모가 높이를 가지고 있지않으면 교차측을 변경해도 반영되지않음
+* flow-direction
+    * 주축방향 수정가능
+
+#### id class selector
+
+```css
+#tomato id="tomato"
+.tomato class="tomato"
+```
+
+#### Position
 
 - default(static)
   - 레이아웃이 박스를 처음 위치하는 곳에 두는것
@@ -49,7 +63,72 @@ flow-direction으로 주축방향을 수정할 수 있다.
 - absolute
   - 가장 가까운 relative 부모를 기준으로 이동 (없으면 상단으로 이동)
 
-### 3.14 Pseudo Selectores part One
+#### Color & Variables
+
+```css
+/* Color */
+/* 1. hexadecimal color */
+#FAE100
+
+/* 2. rgb */
+/*    ) */
+rgb(250, 225, 0)
+
+/* 3. rgba */
+rgb(250, 225, 0, 0.8)
+
+/* Variable(custom property) */
+/* css custom property 브라우저 지원버전 */
+:root {
+  --main-color: #fcce00;
+  --default-border: 1px solid var(--main-color);
+}
+
+p {
+  background-color: var(--main-color);
+}
+a {
+  color: var(--main-color);
+  border: var(--default-border);
+}
+
+$> nav>ul>li\*4>a
+<nav>
+  <ul>
+    <li> * 4
+  </ul>
+</nav>
+```
+
+#### 명명규칙 (BEM)
+
+```css
+클래스로 표기를 명명하였음
+소속관계 btn__column
+행동 -- btn--wide
+```
+
+#### BoxSize
+
+```css
+# border-box를 쓰면 CSS가 content가 보일 부분을 늘리 않음
+box-sizing: border-box
+
+width 200px
+padding left 50px
+|50px|200px|
+```
+
+#### Reset.css
+
+* margin:0, pdding:0, border:0 초기화 되어 있는 파일
+* HTML은 기본적인 Margin이 있는데 없애기 위해선 Reset.css가 필요함
+
+> script는 body닫기 마지막에 있어야됨
+
+## Pseudo Selectores
+
+#### basic
 
 ```css
 /* Pseudo selector는 특정위치에 있는 태그들을 지정할 수 있음*/
@@ -84,7 +163,7 @@ span:nth-child(3n + 1) {
 }
 ```
 
-### 3.15 Combinators
+#### Combinators
 
 ```css
 /* 1. 부모와 바로 밑 자식의 관계 */
@@ -121,7 +200,7 @@ div ~ span {
 <span>여기에 적용</span>
 ```
 
-### 3.16 Pseudo Selectors part Tow
+#### Property
 
 ```css
 /* required */
@@ -161,7 +240,7 @@ input[placeholder~="name"] {
 /* etc 기타 MDN 참조 */
 ```
 
-### 3.17 States
+#### States
 
 ```css
 /* 클릭 시 */
@@ -202,60 +281,14 @@ form:hover input {
 form:hover input:focus {
   background-color: sienna;
 }
-```
-
-### 3.18 Recap
-
-```css
-/* placeholder가 있을경우 변경 */
-input::placeholder {
-  color: yellowgreen;
-}
 
 /* selection 마우스로 선택했을때*/
 p::selection {
   background-color: yellowgreen;
 }
-
-/* 첫번쨰 문자만 */
-p::first-letter {
-  color: white;
-}
 ```
 
-### 3.19 Colors and Variables
-
-```css
-/* Color */
-/* 1. hexadecimal color */
-#FAE100
-
-/* 2. rgb */
-/*    ) */
-rgb(250, 225, 0)
-
-/* 3. rgba */
-rgb(250, 225, 0, 0.8)
-
-/* Variable(custom property) */
-/* css custom property 브라우저 지원버전 */
-:root {
-  --main-color: #fcce00;
-  --default-border: 1px solid var(--main-color);
-}
-
-p {
-  background-color: var(--main-color);
-}
-a {
-  color: var(--main-color);
-  border: var(--default-border);
-}
-```
-
-## 4. ADVANCED CSS
-
-### 4.0 Transitions
+#### Transitions
 
 ```css
 /* 1. transition 속성은 state가 없는 요소에 붙어야됨 */
@@ -278,7 +311,9 @@ a:hover {
 }
 ```
 
-### 4.1 Transitions part Two
+## Animation & Transitions
+
+#### official doc
 
 ```css
 /* ease in function: 브라우저한테 애니메이션이 어떻게 변할지 나타냄 */
@@ -286,7 +321,7 @@ a:hover {
 /* https://matthewlein.com/tools/ceaser */
 ```
 
-### 4,2 Transformations
+#### Transformations
 
 ```css
 /* image를 원으로 만들 수 있음 */
@@ -327,7 +362,7 @@ img:hover {
 }
 ```
 
-### 4.3 Animations part One
+#### Animations
 
 ```css
 /* 계속 재생되는 애니메이션이 필요할때 */
@@ -371,21 +406,31 @@ img {
 }
 ```
 
-### 6.1 Sign Up Screen part ONe
+#### VSCODE 단축키
 
-단축키
-! + 엔터
-line:css
+```bash
+$> ! + Enter
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find - Kokoa Clone</title>
+</head>
+.
+.
+.
+
+$> link:css
 <link rel="stylesheet" href="style.css" />
+```
 
-### 6.2 BEM
+## Font
 
-클래스로 표기를 명명하였음
-소속관계 ** btn**column
-행동 -- btn--wide
-
-### 6.3 FontAwesome
+#### FontAwesome
 
 아이콘을 만드는 방법
 
@@ -394,46 +439,12 @@ line:css
 3. FontAwesome
 4. Google Fonts
 
-script는 body닫기 마지막에 있어야됨
+## Publishing on Github Pages
 
-### 6.5 Status Bar css
-
-CSS Hack
-
-```css
-.status-bar {
-  display: flex;
-  justify-context: center;
-}
-
-.status-bar__column {
-  width: 33%;
-}
-```
-
-### 6.6 Sign Up Screen part Three
-
-HTML에서 기본적인 마진 같은 것들을 없애기 위해선 리셋 CSS를 사용해야 한다.
-
-리셋 CSS는 CSS파일이다.
-
-margin:0, pdding:0, border:0 초기화 되어 있는 파일
-
-### 6.12 단축키
-
-nav>ul>li*4>a
-
-box-sizing: border-box를 쓰면 CSS가 content가 보일 부분을 늘리 않음
-
-width 200px
-padding left 50px
-
-|50px|200px
-
-### 7.1 Publishing on Github Pages
+#### branch
 
 branch를 `gh-pages`로 만들고 `push`를 하면 github에 들어가서 Environments에 들어가보면 github.io 페이지와 연결되어 볼 수 있다.
 
-### 7.2 Updating Github Pages
+#### Updating Github Pages
 
-main branch에서 작업후에 ``gh-pages`` 브랜치로 이동후 ``branch``에 ``update from main`` 클릭 후 푸쉬해야 페이지가 변경됌!
+main branch에서 작업후에 `gh-pages` 브랜치로 이동후 `branch`에 `update from main` 클릭 후 푸쉬해야 페이지가 변경됌!
